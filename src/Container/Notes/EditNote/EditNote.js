@@ -27,7 +27,15 @@ class EditNote extends React.Component{
     handleDelete = () => {
         this.props.onHandleDelete(this.props.note.id);
     }
+
+    componentWillReceiveProps(nextProps){
+        //If there are new props supplied to component
+        debugger;
+        this.setState({txtValue:nextProps.note.body})
+    }
     render(){
+        //can't set state in render funcction, because it is already in render phase and we cannot 
+        // do any side effects
         return (
             <div className="col-sm-8 offset-sm-2">
                 <div className="card">
